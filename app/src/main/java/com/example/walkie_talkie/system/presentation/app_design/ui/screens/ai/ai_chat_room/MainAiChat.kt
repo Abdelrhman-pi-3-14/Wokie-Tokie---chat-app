@@ -24,19 +24,26 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
+import com.example.walkie_talkie.R
 import com.example.walkie_talkie.R.drawable.send_ic
-import com.example.walkie_talkie.system.presentation.app_design.ui.componant.messages.InPut
+import com.example.walkie_talkie.system.presentation.app_design.ui.componant.messages.AiInPut
 import com.example.walkie_talkie.system.presentation.feature_ai_chat.ai_veiwModel.AiViewModel
 import com.example.walkie_talkie.system.presentation.feature_ai_chat.ai_veiwModel.MessageList
 import com.example.walkie_talkie.theme.black
 import com.example.walkie_talkie.theme.darkBlue2
+import com.example.walkie_talkie.theme.darkBlue3
 import com.example.walkie_talkie.theme.lightBlue
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -59,9 +66,9 @@ fun MainAiChat(navController: NavController) {
                         ambientColor = black ,
                         spotColor = black
                     )
-                    .background(darkBlue2)
+                    .background(darkBlue3)
                     .fillMaxWidth() ,
-                shape = RoundedCornerShape(bottomStart = 50.dp , bottomEnd = 50.dp)
+               shape = RoundedCornerShape(bottomStart = 30.dp , bottomEnd = 30.dp)
             ) {
                 ChatWikiTokiScreen(navController = navController)
             }
@@ -71,7 +78,11 @@ fun MainAiChat(navController: NavController) {
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxSize()
-                    .background(darkBlue2)
+                    .paint(
+                        painter = painterResource(id = R.drawable.chat_wallpaper) ,
+                        alignment = Alignment.Center ,
+                        contentScale = ContentScale.Crop
+                    )
             ) {
                 ConstraintLayout(
                     modifier = Modifier
@@ -89,7 +100,7 @@ fun MainAiChat(navController: NavController) {
                             bottom.linkTo(chatBox.top , margin = 16.dp)
                         } , messageList = messageList)
 
-                    InPut(
+                    AiInPut(
                         message = message ,
                         onMessageSend = {
                             aiViewModel.onMessageSend(message.value)

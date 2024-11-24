@@ -1,6 +1,5 @@
 package com.example.walkie_talkie.system.presentation.feature_ai_chat.ai_veiwModel
 
-import android.graphics.Bitmap
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -10,8 +9,8 @@ import com.example.walkie_talkie.system.common.Constants.GEMINI_API_KEY
 import com.example.walkie_talkie.system.common.NetworkResponse
 import com.example.walkie_talkie.system.domain.feature_ai_chat.MessageData
 import com.google.ai.client.generativeai.GenerativeModel
+import com.google.ai.client.generativeai.type.content
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -33,11 +32,20 @@ class AiViewModel() : ViewModel() {
     private val _messageList = MutableStateFlow<List<MessageData>>(emptyList())
     val messageListState: StateFlow<List<MessageData>> = _messageList.asStateFlow()
 
+
+
+
     @RequiresApi(Build.VERSION_CODES.O)
     fun onMessageSend(message: String) {
         viewModelScope.launch {
             try {
-                val chat = generativeModel.startChat()
+                val history = messageList.map { messageData ->
+                    content(role = messageData.user){messageData.text}
+
+                }
+                val chat = generativeModel.startChat(
+                    history = history
+                )
                 val userMessage = MessageData(
                     "user" ,
                     message ,
@@ -49,8 +57,9 @@ class AiViewModel() : ViewModel() {
                 )
                 messageList.add(userMessage)
                 _messageList.value += userMessage
+
+
                 val response = chat.sendMessage(message)
-                NetworkResponse.Success(response)
                 withContext(Dispatchers.IO) {
                     val modelMessage = MessageData(
                         "model" ,
@@ -63,59 +72,25 @@ class AiViewModel() : ViewModel() {
                     )
                     messageList.add(modelMessage)
                     _messageList.value += modelMessage
-                    Log.i("gemini" , "response form gemini : ${response.text.toString()}")
                 }
             } catch (e: Exception) {
-                NetworkResponse.Error(e.message.toString())
-            }
-
-
-        }
-    }
-
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun onMessageWithImage(message: String , image: Bitmap) {
-        viewModelScope.launch {
-            try {
-                val chat = generativeModel.startChat()
-                val userMessage = MessageData(
-                    "user" ,
-                    message ,
-                    isSent = true ,
-                    isDelivered = true ,
-                    isSeen = true ,
-                    isFav = false ,
-                    bitmap = image ,
-                    sendingDate = LocalDate.now() ,
-                )
-                messageList.add(userMessage)
-                _messageList.value += userMessage
-                val response = chat.sendMessage(message)
-                NetworkResponse.Success(response)
-                withContext(Dispatchers.IO) {
-                    val modelMessage = MessageData(
+                messageList.add(
+                    MessageData(
                         "model" ,
-                        response.text.toString() ,
+                        e.message.toString() ,
                         isSent = true ,
                         isDelivered = true ,
                         isSeen = true ,
                         isFav = false ,
                         sendingDate = LocalDate.now()
                     )
-                    messageList.add(modelMessage)
-                    _messageList.value += modelMessage
-                    Log.i("gemini" , "response form gemini : ${response.text.toString()}")
-                }
-            } catch (e: Exception) {
-                NetworkResponse.Error(e.message.toString())
+                )
+                _messageList.value += messageList
             }
+
         }
     }
 }
-
-
-
 
 
 

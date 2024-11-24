@@ -1,5 +1,6 @@
 package com.example.walkie_talkie.system.presentation.app_design.ui.screens.home.chats
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -91,7 +92,11 @@ fun ChatsScreen(navController: NavController) {
             }
             Button(
                 onClick = {
-                    navController.navigate(Screen.AI_graph.route)
+                    try {
+                        navController.navigate(Screen.AI_graph.route)
+                    } catch (e: Exception) {
+                        Log.d("error", "the error is $e")
+                    }
                 } ,
                 modifier = Modifier
                     .height(50.dp)

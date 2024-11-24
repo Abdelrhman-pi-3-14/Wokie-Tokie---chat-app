@@ -36,8 +36,10 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.walkie_talkie.system.domain.feature_ai_chat.MessageData
+import com.example.walkie_talkie.system.presentation.feature_ai_chat.ai_veiwModel.AiViewModel
 import com.example.walkie_talkie.theme.darkBlue
 import com.example.walkie_talkie.theme.lightBlue
+import kotlinx.coroutines.flow.asStateFlow
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -46,7 +48,7 @@ fun FriendMessage(
 ) {
 
     var isFav by remember { mutableStateOf(false) }
-
+    val aiViewModel = AiViewModel()
     Box(
         modifier = Modifier
             .wrapContentSize()
@@ -96,7 +98,7 @@ fun FriendMessage(
                     Spacer(modifier = Modifier.height(8.dp))
                 }
                 Text(
-                    text = messageContent.text ,
+                    text =  messageContent.text ,
                     modifier = Modifier
                         .width(300.dp)
                         .wrapContentHeight()

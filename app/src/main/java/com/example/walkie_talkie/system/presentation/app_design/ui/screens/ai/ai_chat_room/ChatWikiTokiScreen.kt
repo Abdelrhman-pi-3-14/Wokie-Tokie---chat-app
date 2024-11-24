@@ -1,5 +1,6 @@
 package com.example.walkie_talkie.system.presentation.app_design.ui.screens.ai.ai_chat_room
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -16,27 +17,24 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.walkie_talkie.R
-import com.example.walkie_talkie.system.infrastructure.isConnected
-import com.example.walkie_talkie.system.presentation.app_design.navigation.Screen
 import com.example.walkie_talkie.system.presentation.app_design.ui.componant.woki_toki_screen.status_bar.StatusBar
 import com.example.walkie_talkie.system.presentation.feature_ai_chat.ai_veiwModel.ConnectionViewModel
 import com.example.walkie_talkie.theme.darkBlue
@@ -48,11 +46,9 @@ import com.example.walkie_talkie.ui_thames.theme.digital
 
 fun ChatWikiTokiScreen(navController: NavController) {
 
-    var show = remember { mutableStateOf(false) }
-    val connectionViewModel : ConnectionViewModel = viewModel()
-    val isConnected = connectionViewModel.isConnected.observeAsState()
-
-    var isActive = isConnected.value
+    val connectionViewModel: ConnectionViewModel = viewModel()
+    val isConnected = connectionViewModel.isNetworkAvailable.observeAsState(false)
+    var isActive by remember { mutableStateOf(isConnected.value) }
 
     Box(
         modifier = Modifier
@@ -115,9 +111,15 @@ fun ChatWikiTokiScreen(navController: NavController) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.seen_ic) ,
                 contentDescription = null ,
-                tint = if (isActive == true) Green else Red ,
+                tint = if (isActive) Green else Red ,
                 modifier = Modifier
                     .border(1.dp , lightBlue , CircleShape)
+                    .clickable {
+                        Log.d(
+                            "connection" ,
+                            "ChatWikiTokiScreen: $isActive /n the value of isConnected is :$isConnected"
+                        )
+                    }
                     .constrainAs(online) {
                         top.linkTo(statusBar.bottom , margin = 16.dp)
                         end.linkTo(parent.end , margin = 24.dp)

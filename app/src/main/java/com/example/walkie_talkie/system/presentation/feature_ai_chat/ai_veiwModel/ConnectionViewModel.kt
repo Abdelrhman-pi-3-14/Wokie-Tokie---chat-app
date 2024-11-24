@@ -4,12 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ConnectionViewModel : ViewModel() {
-    private val _isConnected = MutableLiveData<Boolean>()
-    val isConnected: LiveData<Boolean> = _isConnected
+class ConnectionViewModel() : ViewModel() {
 
+    private val _isNetworkAvailable = MutableLiveData<Boolean>()
+    val isNetworkAvailable: LiveData<Boolean> = _isNetworkAvailable
 
-    fun isConnected(isConnect: Boolean) {
-        _isConnected.value = isConnect
+    fun setIsNetworkAvailable(isNetworkAvailable: Boolean) {
+        _isNetworkAvailable.value = isNetworkAvailable
     }
 }
+
+
+

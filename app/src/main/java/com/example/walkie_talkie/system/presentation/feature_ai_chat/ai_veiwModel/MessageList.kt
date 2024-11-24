@@ -24,18 +24,22 @@ fun MessageList(
     messageList: List<MessageData> ,
 ) {
 
+
+
+
     LazyColumn(
-        verticalArrangement = Arrangement.Top ,
+        verticalArrangement = Arrangement.Bottom ,
         modifier = modifier ,
+        reverseLayout = true
     ) {
-        items(messageList) { message ->
+        items(messageList.reversed()) { message ->
             if (message.user == "user") {
                 Box(modifier = Modifier.fillMaxWidth() , contentAlignment = Alignment.CenterEnd) {
                     UserMessages(messageContent = message)
                 }
             } else if (message.user == "model") {
                 Box(modifier = Modifier.fillMaxWidth() , contentAlignment = Alignment.CenterStart) {
-                    FriendMessage(messageContent = message )
+                    FriendMessage(messageContent = message)
                 }
             }
         }

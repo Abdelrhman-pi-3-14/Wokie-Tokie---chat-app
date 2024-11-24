@@ -3,23 +3,21 @@ package com.example.walkie_talkie.system.presentation.app_design.ui.componant.me
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,7 +29,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.walkie_talkie.R
 import com.example.walkie_talkie.R.drawable.emoji
 import com.example.walkie_talkie.theme.black
 import com.example.walkie_talkie.theme.darkBlue
@@ -39,10 +36,11 @@ import com.example.walkie_talkie.theme.lightBlue
 
 
 @Composable
-fun InPut(message: MutableState<String> ,onMessageSend : (String) -> Unit , modifier: Modifier) {
+fun AiInPut(message: MutableState<String> , onMessageSend: (String) -> Unit , modifier: Modifier) {
 
 
-    TextField(value = message.value ,
+    TextField(
+        value = message.value ,
         onValueChange = {
             message.value = it
         } ,
@@ -56,14 +54,18 @@ fun InPut(message: MutableState<String> ,onMessageSend : (String) -> Unit , modi
                 ambientColor = black ,
                 spotColor = black
             )
+            .scrollable(
+                state = rememberScrollState() ,
+                orientation = Orientation.Vertical
+            )
             .clip(RoundedCornerShape(50.dp))
             .border(
-                width = 1.dp ,
+                width = 2.dp ,
                 color = lightBlue ,
                 shape = RoundedCornerShape(50.dp)
             ) ,
         placeholder = {
-            Text(text = "Message" , style = TextStyle(color = Color.Gray))
+            Text(text = "Type something......." , style = TextStyle(color = Color.Gray))
         } ,
         maxLines = 50 ,
         colors = TextFieldDefaults.colors(
@@ -88,35 +90,21 @@ fun InPut(message: MutableState<String> ,onMessageSend : (String) -> Unit , modi
             message.value = ""
         }) ,
         leadingIcon = {
-            Image(
-                imageVector = ImageVector.vectorResource(emoji) ,
-                modifier = Modifier
-                    .clickable {
-                } ,
-                contentDescription = "Search" ,
-            )
-        } ,
-        trailingIcon = {
-            if (message.value.isEmpty()) {
-                Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.camera_ic) ,
-                    modifier = Modifier.clickable {
-                    } ,
+            Row( // Wrap in a Row if necessary
+                modifier = Modifier.padding(start = 16.dp) , // Apply padding to the Row
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    imageVector = ImageVector.vectorResource(emoji) ,
+                    modifier = Modifier
+                        .clickable {
+
+                        } ,
                     contentDescription = "Search" ,
-                    tint = Color.Gray
                 )
             }
-                Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.attach_ic) ,
-                    modifier = Modifier
-                        .padding(end = if (message.value.isEmpty()) 64.dp else 16.dp)
-                        .clickable {
-                        } ,
-                    contentDescription = "Search" , tint = Color.Gray
-                )
+        } ,
 
-
-        }
-    )
+        )
 
 }
