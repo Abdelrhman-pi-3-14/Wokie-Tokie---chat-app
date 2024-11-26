@@ -1,12 +1,10 @@
 package com.example.walkie_talkie.system.presentation.feature_ai_chat.ai_veiwModel
 
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.walkie_talkie.system.common.Constants.GEMINI_API_KEY
-import com.example.walkie_talkie.system.common.NetworkResponse
 import com.example.walkie_talkie.system.domain.feature_ai_chat.MessageData
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
@@ -33,14 +31,12 @@ class AiViewModel() : ViewModel() {
     val messageListState: StateFlow<List<MessageData>> = _messageList.asStateFlow()
 
 
-
-
     @RequiresApi(Build.VERSION_CODES.O)
     fun onMessageSend(message: String) {
         viewModelScope.launch {
             try {
                 val history = messageList.map { messageData ->
-                    content(role = messageData.user){messageData.text}
+                    content(role = messageData.user) { text(messageData.text) }
 
                 }
                 val chat = generativeModel.startChat(
@@ -77,7 +73,7 @@ class AiViewModel() : ViewModel() {
                 messageList.add(
                     MessageData(
                         "model" ,
-                        e.message.toString() ,
+                        "Error : ${e.message}" ,
                         isSent = true ,
                         isDelivered = true ,
                         isSeen = true ,
