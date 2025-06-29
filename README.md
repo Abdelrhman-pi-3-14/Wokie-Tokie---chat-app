@@ -1,6 +1,6 @@
 # 📻 Walkie Talkie – Retro Chat App (WIP)
 
-**Walkie Talkie** is a retro-themed real-time chat app built with **Jetpack Compose**, inspired by 1980s walkie-talkies. Designed to merge nostalgic aesthetics with modern AI tools, it’s your pocket companion for weather, assistance, and—soon—communication.
+**Walkie Talkie** is a retro-themed real-time chat app built with **Jetpack Compose**, inspired by classic 1980s walkie-talkies. The app blends nostalgic aesthetics with modern AI tools, weather integration, and original hand-drawn artwork — all designed to become a fully functional, production-ready chat platform.
 
 > ⚠️ Currently under development — core messaging is coming soon.
 
@@ -8,31 +8,35 @@
 
 ## ✅ Current Features
 
-- 🎨 **Retro-style UI** with **Jetpack Compose**
-- 🌤️ **Weather checker**: Get real-time weather by entering a location
-- 🤖 Built-in **AI assistant** (powered by Gemini API)
-- 📱 Fully responsive Compose layouts for phones
-- 🖼️ Hand-drawn background art (by a digital artist (my friend) :) )
+- 🎨 **Retro-style UI** built entirely with **Jetpack Compose**
+- 🌤️ **Weather checker** using real-time weather API
+- 🤖 **AI assistant** powered by Google Gemini API
+- 📱 Responsive layouts optimized for modern Android devices
+- 🖼️ **Hand-drawn background and character art** by a digital artist friend, giving the app a unique nostalgic feel
 
 ---
 
-## 🚧 Planned Features
+## 🚧 Planned Features (Upcoming)
 
-- 📡 **Push-to-talk messaging** system (like classic walkie-talkies)
-- 🧵 **Chat rooms** and **user stories**
-- 🔐 User authentication & database integration
-- 📨 Voice messaging
-- 🌙 Dark mode toggle
+- 📡 **Push-to-talk messaging** — send voice snippets like a real walkie-talkie
+- 💬 **Chat rooms & stories** — join group chats, post status updates
+- 🔐 **User authentication** — login with email or social platforms
+- 🧠 **Smarter AI assistant** — context-aware replies, mood detection
+- 🧾 **Coded messages** — unlock mini-games and secret phrases inside chats
+- 🎮 **Game Place mode** — retro-inspired mini-games and quizzes integrated into chat
+- 🛠️ **Admin dashboard & moderation tools**
+- 📲 **Production-ready deployment** — Play Store release with crash handling, analytics, and backend integration
 
 ---
 
 ## 🧪 Tech Stack
 
-- **Kotlin** / **Jetpack Compose**
+- **Kotlin**
+- **Jetpack Compose**
 - **Material Design 3**
-- **Gemini AI API** (Google)
+- **Gemini AI API**
 - **OpenWeather API**
-- (Coming soon): **Firebase / Django** backend
+- *(Planned)* Firebase or Django backend
 
 ---
 
@@ -48,7 +52,7 @@
   <img src="screenShots/Screenshot 2025-06-30 010033.png" width="394" alt="Weather results">
 </p>
 
-> 🎨 Screens reflect a mix of implemented and prototype features.
+> 🎨 All UI assets are original and illustrated for this app by a collaborating digital artist.
 
 ---
 
@@ -58,11 +62,17 @@
 
 - Android Studio Giraffe/Koala or newer
 - Kotlin 1.9+
-- OpenWeather & Gemini API keys
+- Gemini and OpenWeather API keys
 
 ### Steps
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/walkie-talkie-chat.git
-open with Android Studio
-build & run on emulator or device
+cd walkie-talkie-chat
+# Open in Android Studio and run on emulator/device
+
+
+
+
+
+
