@@ -19,7 +19,7 @@ import java.time.LocalDate
 class AiViewModel() : ViewModel() {
 
     private val generativeModel: GenerativeModel = GenerativeModel(
-        "gemini-pro" ,
+        "gemini-2.0-flash",
         GEMINI_API_KEY ,
     )
 
