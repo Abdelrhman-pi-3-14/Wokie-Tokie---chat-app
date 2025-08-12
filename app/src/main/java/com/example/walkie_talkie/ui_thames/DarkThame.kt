@@ -3,6 +3,9 @@ package com.example.walkie_talkie.ui_thames
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import com.example.walkie_talkie.R
 
 
 /*
@@ -25,6 +28,7 @@ object DarkColorScheme {
     val darkPurple = Color(0xFF350750)
     val midPurple = Color(0xFF571081)
     val lightPurple = Color(0xFF7616AF)
+    val greenLight = Color(0xFF00FFDC)
     val background :Brush = Brush.verticalGradient(
         colors = listOf(
             black,
@@ -37,4 +41,8 @@ object DarkColorScheme {
     )
 }
 
-
+val digital = FontFamily(
+    Font(R.font.digital7italic658) ,
+    Font(R.font.digital7rg1ml),
+    Font(R.font.digital7mono94)
+)
