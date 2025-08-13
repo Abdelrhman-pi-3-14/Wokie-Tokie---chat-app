@@ -33,6 +33,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import com.example.walkie_talkie.R
 import com.example.walkie_talkie.R.drawable.female_profile
+import com.example.walkie_talkie.R.drawable.robot_profile
 import com.example.walkie_talkie.system.app_design.presentation.ui.componant.woki_toki_screen.status_bar.StatusBar
 import com.example.walkie_talkie.system.feature_ai_chat.domain.repository.Connection
 import com.example.walkie_talkie.system.feature_ai_chat.domain.repository.NetworkState
@@ -80,7 +81,7 @@ fun ChatWikiTokiScreen(navController: NavController) {
 
             )
             Image(
-                painter = painterResource(id = female_profile) ,
+                painter = painterResource(id = robot_profile) ,
                 contentDescription = "user profile" ,
                 modifier = Modifier
                     .clip(CircleShape)
