@@ -1,4 +1,4 @@
-package com.example.walkie_talkie.system.app_design.presentation.ui.screens.home.chats.chat_room
+package com.example.walkie_talkie.system.private_chat.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,6 +38,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavController
+import androidx.navigation.Navigator
 import com.example.walkie_talkie.R
 import com.example.walkie_talkie.R.drawable.female_profile
 import com.example.walkie_talkie.R.drawable.media_ic
@@ -47,10 +49,8 @@ import com.example.walkie_talkie.theme.darkBlue2
 import com.example.walkie_talkie.theme.lightBlue
 import com.example.walkie_talkie.ui_thames.digital
 
-@Preview(showBackground = true)
 @Composable
-fun ProfileInfo() {
-    var show = remember { mutableStateOf(false) }
+fun ProfileInfo(navController: NavController) {
 
     ConstraintLayout(
         Modifier
@@ -76,7 +76,13 @@ fun ProfileInfo() {
                     start.linkTo(parent.start , margin = 16.dp)
                     end.linkTo(profileImage.start , margin = 16.dp)
                 }
-                .size(40.dp) , tint = lightBlue
+                .size(40.dp)
+                .clickable{
+                    navController.popBackStack()
+                }
+
+            , tint = lightBlue
+
         )
 
 
@@ -163,16 +169,17 @@ fun ProfileInfo() {
                 }
 
 
-                LazyRow(modifier = Modifier
-                    .fillMaxWidth()
-                    .height(100.dp)
-                    .padding(start = 16.dp , end = 16.dp)
-                    .constrainAs(media) {
-                        top.linkTo(mediaName.bottom , margin = 16.dp)
-                        start.linkTo(parent.start)
-                        end.linkTo(parent.end)
+                LazyRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .padding(start = 16.dp , end = 16.dp)
+                        .constrainAs(media) {
+                            top.linkTo(mediaName.bottom , margin = 16.dp)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
 
-                    }
+                        }
                 ) { }
 
                 Row(

@@ -12,7 +12,7 @@ import com.example.walkie_talkie.system.feature_ai_chat.presentation.ui.MainAiCh
 fun NavGraphBuilder.AiScreen(navController: NavController) {
     navigation(
         startDestination = Screen.Ai.route ,
-        route = Screen.AI_graph.route
+        route = Screen.AiGraph.route
     ) {
         composable(Screen.Ai.route) {
             MainAiChat(navController)

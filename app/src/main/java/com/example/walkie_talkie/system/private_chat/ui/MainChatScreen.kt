@@ -1,5 +1,7 @@
-package com.example.walkie_talkie.system.app_design.presentation.ui.screens.home.chats.chat_room
+package com.example.walkie_talkie.system.private_chat.ui
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -41,14 +43,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.walkie_talkie.R
 import com.example.walkie_talkie.R.drawable.chat_wallpaper
 import com.example.walkie_talkie.R.drawable.emoji
+import com.example.walkie_talkie.R.drawable.female_profile
 import com.example.walkie_talkie.R.drawable.mic_ic
 import com.example.walkie_talkie.R.drawable.send_ic
 import com.example.walkie_talkie.system.feature_ai_chat.presentation.ui.ChatWikiTokiScreen
@@ -57,9 +60,9 @@ import com.example.walkie_talkie.theme.darkBlue2
 import com.example.walkie_talkie.theme.lightBlue
 
 
-@Preview(showBackground = true)
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun MainChatRoomFun() {
+fun MainChatScreen(navController: NavController) {
 
     Scaffold(
         modifier = Modifier
@@ -71,8 +74,7 @@ fun MainChatRoomFun() {
                     .background(darkBlue2) ,
                 shape = RoundedCornerShape(bottomStart = 50.dp , bottomEnd = 50.dp)
             ) {
-                val navController = rememberNavController()
-                ChatWikiTokiScreen(navController)
+                ChatWikiTokiScreen(navController , "user 2" , female_profile)
             }
         } ,
         content = { paddingValues ->
@@ -204,4 +206,9 @@ fun MainChatRoomFun() {
         }
     )
 }
+
+
+
+
+
 

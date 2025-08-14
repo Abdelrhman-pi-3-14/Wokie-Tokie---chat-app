@@ -8,13 +8,14 @@ import androidx.navigation.compose.NavHost
 
 
 // the navigation graph
-@RequiresApi(Build.VERSION_CODES.O)
+
+@RequiresApi(Build.VERSION_CODES.S)
 @Composable
 fun NestedNavigationGraph(navController: NavHostController , isLoggedIn: Boolean) {
 
     NavHost(
         navController = navController ,
-        startDestination = if (isLoggedIn) Screen.Home_graph.route else Screen.Authentication.route
+        startDestination = if (isLoggedIn) Screen.HomeGraph.route else Screen.AuthenticationGraph.route
     ) {
         Home(navController = navController)
         Chat(navController = navController)

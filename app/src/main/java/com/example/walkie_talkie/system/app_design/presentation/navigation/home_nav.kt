@@ -17,21 +17,12 @@ import com.example.walkie_talkie.system.app_design.presentation.ui.screens.home.
 fun NavGraphBuilder.Home(navController: NavController) {
     navigation(
         startDestination = Screen.MainScreen.route ,
-        route = Screen.Home_graph.route
+        route = Screen.HomeGraph.route
     ) {
         composable(Screen.MainScreen.route) {
             HomeScreen(navController)
         }
-        composable(Screen.Chats.route) {
-            Chat(navController)
-        }
-        composable(Screen.Status.route) {
-            StatusScreen(navController)
-        }
-        composable(Screen.Channels.route) {
-            ChannelsScreen(navController)
 
-        }
         composable(Screen.Error.route) {
             ErrorScreen(navController , "Error: Unknown route")
         }

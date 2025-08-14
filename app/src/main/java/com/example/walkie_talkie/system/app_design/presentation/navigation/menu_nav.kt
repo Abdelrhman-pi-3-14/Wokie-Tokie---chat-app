@@ -9,7 +9,7 @@ import androidx.navigation.navigation
 fun NavGraphBuilder.Menu(navController: NavController) {
     navigation(
         startDestination = Screen.Fav.route ,
-        Screen.Menu_graph.route ,
+        Screen.MenuGraph.route ,
     ) {
         composable(Screen.Fav.route) {}
         composable(Screen.Arch.route) {}

@@ -10,11 +10,9 @@ fun NavGraphBuilder.Settings(navController: NavController) {
     navigation(
 
         startDestination = Screen.Settings.route ,
-        Screen.Settings_graph.route ,
+        Screen.SettingsGraph.route ,
     ) {
-        composable(Screen.Thames.route) {
 
-        }
         composable(Screen.Privacy.route) {
 
         }

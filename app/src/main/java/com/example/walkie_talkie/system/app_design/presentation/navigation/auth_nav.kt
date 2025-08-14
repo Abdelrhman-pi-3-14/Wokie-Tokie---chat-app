@@ -8,7 +8,7 @@ import androidx.navigation.navigation
 fun NavGraphBuilder.Auth(navController: NavController) {
     navigation(
         startDestination = Screen.AuthScreen1.route ,
-        Screen.Authentication.route ,
+        Screen.AuthenticationGraph.route ,
     ) {
         composable(Screen.AuthScreen1.route) {}
         composable(Screen.AuthScreen2.route) {}

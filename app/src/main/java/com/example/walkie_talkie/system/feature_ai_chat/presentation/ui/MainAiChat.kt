@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import com.example.walkie_talkie.R
+import com.example.walkie_talkie.R.drawable.robot_profile
 import com.example.walkie_talkie.R.drawable.send_ic
 import com.example.walkie_talkie.system.app_design.presentation.ui.componant.messages.AiInPut
 import com.example.walkie_talkie.system.feature_ai_chat.presentation.view_model.AiViewModel
@@ -68,7 +69,7 @@ fun MainAiChat(navController: NavController) {
                     .fillMaxWidth() ,
                 shape = RoundedCornerShape(bottomStart = 30.dp , bottomEnd = 30.dp)
             ) {
-                ChatWikiTokiScreen(navController = navController)
+                ChatWikiTokiScreen( navController , "Ai assistant" , robot_profile)
             }
         } ,
         content = { paddingValues ->

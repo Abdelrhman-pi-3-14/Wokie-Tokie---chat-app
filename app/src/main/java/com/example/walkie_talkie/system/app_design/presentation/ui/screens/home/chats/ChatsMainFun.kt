@@ -82,7 +82,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "Are we still meeting tomorrow?",
                         currentTime = "09:15 AM",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = false,
                         isDelivered = false,
                         isSent = false,
@@ -96,7 +96,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "Sent you the design files",
                         currentTime = "Yesterday",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = false,
                         isDelivered = false,
                         isSent = true,
@@ -110,7 +110,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "Thanks for your help!",
                         currentTime = "10:30 PM",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = false,
                         isDelivered = true,
                         isSent = false,
@@ -124,7 +124,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "Meeting moved to 3 PM",
                         currentTime = "11:45 AM",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = true,
                         isDelivered = false,
                         isSent = false,
@@ -138,7 +138,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "This is a very long message that should test text overflow capabilities in the UI component",
                         currentTime = "08:00 AM",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = false,
                         isDelivered = true,
                         isSent = false,
@@ -152,7 +152,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "مرحبا! كيف حالك؟",
                         currentTime = "12:30 PM",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = false,
                         isDelivered = false,
                         isSent = false,
@@ -166,7 +166,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "Did you see the latest update?",
                         currentTime = "Last week",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = true,
                         isDelivered = false,
                         isSent = false,
@@ -180,7 +180,7 @@ fun ChatsScreen(navController: NavController) {
                         lastMessage = "Call me when you're free",
                         currentTime = "06:20 PM",
                         imageOnClick = {  },
-                        cardOnClick = { navController.navigate(Screen.Chats.route) },
+                        cardOnClick = { navController.navigate(Screen.PrivateChat.route) },
                         isSeen = false,
                         isDelivered = false,
                         isSent = false,
@@ -215,7 +215,7 @@ fun ChatsScreen(navController: NavController) {
             Button(
                 onClick = {
                     try {
-                        navController.navigate(Screen.AI_graph.route)
+                        navController.navigate(Screen.AiGraph.route)
                     } catch (e: Exception) {
                         Log.d("error" , "the error is $e")
                     }
