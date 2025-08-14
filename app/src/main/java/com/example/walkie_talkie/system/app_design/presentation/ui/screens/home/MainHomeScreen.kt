@@ -365,6 +365,7 @@ fun HomeScreen(navController: NavController) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
+
                         .wrapContentHeight()
                         .background(background)
                         .padding(paddingValues)

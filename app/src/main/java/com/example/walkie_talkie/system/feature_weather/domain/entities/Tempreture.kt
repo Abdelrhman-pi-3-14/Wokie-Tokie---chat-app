@@ -14,7 +14,7 @@ import com.example.walkie_talkie.ui_thames.digital
 fun GetTemperature(temp: String , onClicked: () -> Unit)  {
     Text(
         text = "$temp C°",
-        fontSize = 20.sp,
+        fontSize = 15.sp,
         maxLines = 1,
         color = greenLight,
         fontFamily = digital,
@@ -28,7 +28,7 @@ fun GetTemperature(temp: String , onClicked: () -> Unit)  {
 fun GetTemperature(temp: String)  {
     Text(
         text = "$temp C°",
-        fontSize = 20.sp,
+        fontSize = 15.sp,
         maxLines = 1,
         color = greenLight,
         fontFamily = digital,

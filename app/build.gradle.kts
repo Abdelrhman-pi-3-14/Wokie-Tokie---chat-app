@@ -14,8 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.walkie_talkie"
-        minSdk = 24
-        //noinspection OldTargetApi
+        minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

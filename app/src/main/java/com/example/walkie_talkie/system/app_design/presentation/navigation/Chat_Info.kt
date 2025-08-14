@@ -6,8 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.walkie_talkie.system.private_chat.ui.ProfileInfo
-import com.example.walkie_talkie.system.private_chat.ui.MainChatScreen
+import com.example.walkie_talkie.system.private_chat.presentation.ui.ProfileInfo
+import com.example.walkie_talkie.system.private_chat.presentation.ui.MainChatScreen
 
 
 @RequiresApi(Build.VERSION_CODES.S)

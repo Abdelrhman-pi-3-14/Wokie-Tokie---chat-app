@@ -1,4 +1,4 @@
-package com.example.walkie_talkie.system.private_chat.ui
+package com.example.walkie_talkie.system.private_chat.presentation.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

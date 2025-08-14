@@ -79,7 +79,7 @@ fun StatusBar(
         verticalAlignment = Alignment.Top ,
         modifier = modifier
             .fillMaxWidth()
-            .height(20.dp)
+            .height(30.dp)
             .background(color = backGround)
     ) {
         Text(

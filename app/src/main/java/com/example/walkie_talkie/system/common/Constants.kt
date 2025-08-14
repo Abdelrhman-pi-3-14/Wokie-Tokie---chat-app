@@ -2,6 +2,7 @@ package com.example.walkie_talkie.system.common
 
 object Constants {
 
+    const val  WEB_SOCKET_BASE_URL ="ws://192.168.1.6:8000/private/chat/"
     const val BASE_URL2 = "https://api.weatherapi.com"
     const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
     const val BASE_WS_URL = "\"ws://10.0.2.2:8000/ws\""

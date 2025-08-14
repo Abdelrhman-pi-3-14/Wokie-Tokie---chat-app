@@ -29,7 +29,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import com.example.walkie_talkie.R.drawable.robot_ic
 import com.example.walkie_talkie.system.app_design.presentation.navigation.Screen
-import com.example.walkie_talkie.system.private_chat.ui.ChatCard
+import com.example.walkie_talkie.system.private_chat.presentation.ui.ChatCard
 import com.example.walkie_talkie.theme.darkBlue
 import com.example.walkie_talkie.ui_thames.DarkColorScheme.black
 import com.example.walkie_talkie.ui_thames.DarkColorScheme.darkBlue2
@@ -209,7 +209,7 @@ fun ChatsScreen(navController: NavController) {
                     color = lightBlue ,
                     modifier = Modifier ,
                     fontFamily = digital ,
-                    fontSize = 24.sp
+                    fontSize = 20.sp
                 )
             }
             Button(

@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import com.example.walkie_talkie.system.app_design.presentation.navigation.Screen
-import com.example.walkie_talkie.system.private_chat.ui.ChatCard
+import com.example.walkie_talkie.system.private_chat.presentation.ui.ChatCard
 import com.example.walkie_talkie.theme.darkBlue
 import com.example.walkie_talkie.ui_thames.DarkColorScheme.black
 import com.example.walkie_talkie.ui_thames.DarkColorScheme.darkBlue2

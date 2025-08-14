@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.walkie_talkie.system.MyApp
+import com.example.walkie_talkie.system.private_chat.data.remote.ChatWebSocketListener
+import com.example.walkie_talkie.system.private_chat.data.remote.connectToServer
 import com.example.walkie_talkie.theme.Walkie_TalkieDarkTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,6 +22,7 @@ class MainActivity : ComponentActivity() {
                 val systemUiController = rememberSystemUiController()
                 systemUiController.isSystemBarsVisible = false
                 MyApp()
+                connectToServer("1" , "2")
             }
         }
     }

@@ -117,13 +117,14 @@ fun WokiTokiScreen(
                     .aspectRatio(1f)
                     .clickable(enabled = true , onClick = onclick)
                     .constrainAs(userProfile) {
-                        top.linkTo(parent.top , margin = 48.dp)
+                        top.linkTo(statusBar.bottom , margin = 16.dp)
                         start.linkTo(parent.start , margin = 24.dp)
                     }
             )
             var text by remember { mutableStateOf("") }
             TextField(
                 value = text ,
+
                 onValueChange = {
                     text = it
                 } ,
@@ -136,7 +137,7 @@ fun WokiTokiScreen(
                         shape = RoundedCornerShape(50.dp)
                     )
                     .constrainAs(search) {
-                        top.linkTo(parent.top , margin = 50.dp)
+                        top.linkTo(statusBar.bottom , margin = 16.dp)
                         start.linkTo(userProfile.end)
                         end.linkTo(parent.end)
                     } ,
@@ -157,7 +158,7 @@ fun WokiTokiScreen(
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Filled.Search ,
-                        modifier = Modifier.clickable {
+                        modifier = Modifier.size(20.dp).clickable {
 
                         } ,
                         contentDescription = "Search" ,
@@ -167,7 +168,7 @@ fun WokiTokiScreen(
 
             TabRow(
                 modifier = Modifier
-                    .height(50.dp)
+                    .height(40.dp)
                     .wrapContentWidth()
                     .background(darkBlue)
                     .clip(RoundedCornerShape(topStart = 50.dp , topEnd = 50.dp))
@@ -196,7 +197,7 @@ fun WokiTokiScreen(
                                 imageVector = item.selectedIcon ,
                                 contentDescription = item.title ,
                                 modifier = Modifier
-                                    .size(24.dp)
+                                    .size(20.dp)
                                     .offset(y = (-8).dp)
 
                             )
